@@ -10,7 +10,7 @@
 <div class="hero-container d-flex align-items-center justify-content-center">
     <div class="hero-content text-center">
         <img src="{{ asset('images/ebook.jpg') }}" alt="Illustration de lecture" class="hero-image img-fluid">
-        <h1>Bienvenue sur <span class="brand">ReadMe</span></h1>
+        <h1>Bienvenue sur <span class="brand">Bookly</span></h1>
         <p class="hero-subtitle">Découvrez, lisez et emportez vos livres préférés partout.</p>
         <a href="{{ route('books.create') }}" class="btn btn-custom mt-3"><i class="fa fa-plus-circle me-2"></i>Ajouter un eBook</a>
         <a href="{{ route('books.index')}}" class="btn btn-outline-secondary mt-3"><i class="fa fa-book me-2"></i>Explorer la bibliothèque</a>

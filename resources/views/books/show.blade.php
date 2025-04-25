@@ -33,7 +33,7 @@
                     <div><span>Format :</span> {{ pathinfo($book->file_path, PATHINFO_EXTENSION) }}</div>
                     <div><span>Taille :</span> {{ number_format(Storage::disk('public')->size($book->file_path) / 1024 / 1024, 2) }} MB</div>
                 </div>
-                <a href="{{ route('books.read', $book->id) }}" class="btn btn-primary mt-4">
+                <a href="{{ route('books.read', $book->id) }}" class="btn btn-read mt-4">
                     <i class="fas fa-book-open me-2"></i> Lire le livre
                 </a>
             </div>

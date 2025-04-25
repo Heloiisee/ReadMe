@@ -3,6 +3,7 @@
 
 $primary-color: #ffa500;
 $secondary-color: #31231d;
+$background-color: #fffeff;
 
 * {
   padding: 0;
@@ -627,6 +628,16 @@ nav {
         margin-top: 1rem;
         font-size: 0.95rem;
 
+
+          i {
+            margin-right: 0.5rem;
+          }
+
+          &:hover {
+            background-color: #1a202c;
+          }
+        }
+
         div {
           margin-bottom: 0.5rem;
 
@@ -639,7 +650,7 @@ nav {
       }
 
       .btn {
-        background-color: #4299e1;
+        background-color: $secondary-color;
         color: #fff;
         padding: 0.75rem 1.25rem;
         border: none;
@@ -656,12 +667,12 @@ nav {
         }
 
         &:hover {
-          background-color: #3182ce;
+          background-color: #28190f;
         }
       }
     }
   }
-}
+
 
 // Responsive tweaks
 @media (max-width: 768px) {
@@ -770,3 +781,66 @@ input[type="range"] {
 }
 }
 
+
+#chapter-list {
+  padding: 0;
+  list-style: none;
+  border: 1px solid lighten($secondary-color, 30%);
+  border-radius: 0.5rem;
+  background-color: lighten($background-color, 2%);
+
+  .list-group-item {
+    background-color: transparent;
+    color: $secondary-color;
+    border: none;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+
+    &:hover {
+      background-color: $primary-color;
+      color: $secondary-color;
+    }
+
+    &.active {
+      background-color: $primary-color;
+      color: $secondary-color;
+      font-weight: bold;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+#chapter-content {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ddd;
+  color: $secondary-color;
+
+  h3 {
+    color: $primary-color;
+  }
+
+  .btn-outline-primary {
+    color: $secondary-color;
+    border-color: $secondary-color;
+
+    &:hover {
+      background-color: $primary-color;
+      color: $secondary-color;
+      border-color: $primary-color;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ url('/') }}"><i class="fa fa-book"></i> ReadMe</a>
+        <a class="navbar-brand" href="{{ url('/') }}"><i class="fa fa-book"></i> Bookly</a>
 
         <!-- Bouton responsive -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
