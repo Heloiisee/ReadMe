@@ -1,0 +1,141 @@
+    .ebook-view {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background: #fffeff;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    
+        .back-btn {
+        display: inline-block;
+        text-decoration: none;
+        color: #555555;
+        font-size: 14px;
+        margin-bottom: 15px;
+        transition: color 0.3s ease;
+    
+        &:hover {
+            color: #2f2f2f;
+        }
+        }
+    
+        .ebook-details {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        .ebook-cover {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+    
+            img {
+            max-width: 60%;
+            border-radius: 0;
+            transition: transform 0.3s ease-in-out;
+    
+            &:hover {
+                transform: scale(1.05);
+            }
+            }
+        }
+    
+        .ebook-info {
+            text-align: center;
+            max-width: 90%;
+    
+            h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: $secondary-color;
+            text-transform: capitalize;
+            }
+    
+            p {
+            font-size: 14px;
+            color: #555555;
+            margin: 5px 0;
+            }
+    
+            .description {
+            font-size: 16px;
+            color: #444;
+            margin-top: 15px;
+            line-height: 1.6;
+            text-align: justify;
+            }
+        }
+        }
+    
+        .ebook-actions {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+    
+            &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            }
+    
+            &.btn-download {
+            background: $primary-color;
+            color: white;
+    
+            &:hover {
+                background: #cc8400;
+            }
+            }
+    
+            &.btn-read {
+            background: $secondary-color;
+            color: white;
+    
+            &:hover {
+                background: #513a30;
+            }
+            }
+        }
+        }
+    
+        @media (max-width: 768px) {
+        max-width: 95%;
+        padding: 15px;
+    
+        .ebook-details .ebook-info {
+            h1 {
+            font-size: 22px;
+            }
+    
+            .description {
+            font-size: 14px;
+            }
+        }
+    
+        .ebook-actions {
+            flex-direction: column;
+            align-items: center;
+    
+            .btn {
+            width: 100%;
+            text-align: center;
+            }
+        }
+        }
+    }
+    

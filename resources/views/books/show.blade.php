@@ -23,7 +23,7 @@
 
                 <div style="max-width: 100%;">
                 @if($book->description)
-                    <p style="color: #4a5568; margin-bottom: 1.5rem;">{{ $book->description }}</p>
+                    <p style="color: #4a5568; margin-bottom: 1.5rem;">{{ strip_tags($book->description,'<br><strong>') }}</p>
                 @endif
             </div>
 

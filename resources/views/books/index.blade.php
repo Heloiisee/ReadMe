@@ -7,6 +7,14 @@
 
 <div class="library-container">
     <h1>📚 Ma Bibliothèque</h1>
+        <div class="mb-4">
+        <a href="{{ route('books.create') }}" class="btn btn-custom">
+            <i class="fas fa-plus"></i> Ajouter un livre
+        </a>
+    </div>
+
+    {{-- Message de session --}}
+
 
     @if ($books->isNotEmpty())
         <div class="book-grid">
@@ -34,7 +42,7 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-delete">
-                                <i class="fab fa-trash"></i> Supprimer
+                                <i class="fas fa-trash-alt"></i> Supprimer
                             </button>
                         </form>
                     </div>
