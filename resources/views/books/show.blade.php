@@ -13,7 +13,13 @@
     <div class="book-header">
         @if($book->cover_path)
         <div class="book-cover">
-            <img src="{{ Storage::url($book->cover_path) }}" alt="Couverture de {{ $book->title }}">
+        @if ($book->cover_path && Storage::disk('public')->exists($book->cover_path))
+    <img src="{{ Storage::url($book->cover_path) }}" alt="Couverture du livre" class="book-cover-img">
+        @elseif ($book->cover_base64)
+            <img src="data:image/jpeg;base64,{{ $book->cover_base64 }}" alt="Couverture du livre" class="book-cover-img">
+        @else
+            <div>Pas de couverture disponible</div>
+        @endif
         </div>
         @endif
 

@@ -21,11 +21,13 @@
             @foreach ($books as $book)
                 <div class="book-card">
                     <div class="book-cover">
-                        @if ($book->cover_path && Storage::disk('public')->exists($book->cover_path))
-                            <img src="{{ Storage::url($book->cover_path) }}" alt="Couverture du livre">
-                        @else
-                            <div class="no-cover">Pas de couverture</div>
-                        @endif
+                    @if ($book->cover_path && Storage::disk('public')->exists($book->cover_path))
+                        <img src="{{ Storage::url($book->cover_path) }}" alt="Couverture du livre" class="book-cover-img">
+                    @elseif ($book->cover_base64)
+                        <img src="data:image/jpeg;base64,{{ $book->cover_base64 }}" alt="Couverture du livre" class="book-cover-img">
+                    @else
+                        <div>Pas de couverture disponible</div>
+                    @endif
                     </div>
 
                     <div class="book-info">
