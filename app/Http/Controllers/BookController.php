@@ -69,7 +69,7 @@ public function read(Book $book)
     return view('books.read', [
         'ebook' => $book,
         'chapters' => $chapters,
-        'fileType' => 'epub', // ou dynamique si besoin
+        'fileType' => $book->file_type, // ou dynamique si besoin
     ]);
 }
 
