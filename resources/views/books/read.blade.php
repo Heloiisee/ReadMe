@@ -13,9 +13,13 @@
 
     @if ($fileType === 'pdf')
         {{-- LECTEUR PDF --}}
-        <div style="height: 80vh;">
-            <iframe src="{{ Storage::url($ebook->file_path) }}" width="100%" height="100%" frameborder="0"></iframe>
+        <div class="pdf-container" style="position: relative; padding-top: 56.25%; height: 0; overflow: hidden;">
+            <iframe src="{{ Storage::url($ebook->file_path) }}" 
+                style="position: absolute; top:0; left:0; width:100%; height:100%; border: none;" 
+                allowfullscreen>
+            </iframe>
         </div>
+
     @else
         {{-- VERSION MOBILE --}}
         <div class="d-md-none mb-3">

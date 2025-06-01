@@ -16,6 +16,17 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
+        {{-- Nom d'utilisateur --}}
+
+        <div class="form-group">
+            <label for="name" class="form-label">Nom d'utilisateur *</label>
+            <input type="name" id="name" name="name" value="{{ old('name') }}"
+                class="form-control @error('name') is-invalid @enderror" required>
+            @error('name')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+
         {{-- Adresse e-mail --}}
         <div class="form-group">
             <label for="email" class="form-label">Adresse e-mail *</label>

@@ -12,7 +12,7 @@ class BookController extends Controller
 {
     public function index()
     {
-        $books = Book::latest()->paginate(10);
+        $books = Book::where('user_id', auth()->id())->latest()->paginate(10);
         return view('books.index', compact('books'));
     }
 
@@ -36,6 +36,7 @@ class BookController extends Controller
     [$coverPath,$coverBase64]= $this->saveCover($ebook);
 
     $book = Book::create([
+        
         'title' => $ebook->getTitle() ?? 'Titre inconnu',
         'author' => $ebook->getAuthors()[0] ?? 'Auteur inconnu',
         'description' => $ebook->getDescription() ?? '',
@@ -44,6 +45,7 @@ class BookController extends Controller
         'file_path' => $path,
         'file_type' => strtolower($request->file('file')->getClientOriginalExtension()),
         'file_size' => round($request->file('file')->getSize() / 1024 / 1024, 2), // 🔧 ICI : vraie taille sur disque
+        'user_id' => auth()->id(), // Assurez-vous que l'utilisateur est authentifié
     ]);
     
      // 🔥 Extraire toutes les images juste après
@@ -55,6 +57,11 @@ class BookController extends Controller
 
 public function read(Book $book)
 {
+
+    if ($book->user_id !== auth()->id()) {
+        abort(403); // Interdit si ce n'est pas son livre
+    }
+
     $filePath = storage_path('app/public/' . $book->file_path);
 
     $ebook = KiwilanEbook::read($filePath);
@@ -75,6 +82,11 @@ public function read(Book $book)
 
 public function chapter(Book $book, $index)
 {
+
+    if ($book->user_id !== auth()->id()) {
+        abort(403); // Interdit si ce n'est pas son livre
+    }
+
     $filePath = storage_path("app/public/" . $book->file_path);
 
     $ebook = KiwilanEbook::read($filePath);
@@ -113,11 +125,19 @@ public function chapter(Book $book, $index)
 
     public function show(Book $book)
     {
+        if ($book->user_id !== auth()->id()) {
+            abort(403); // Interdit si ce n'est pas son livre
+        }
+
         return view('books.show', compact('book'));
     }
 
     public function destroy(Book $book)
     {
+        if ($book->user_id !== auth()->id()) {
+            abort(403); // Interdit si ce n'est pas son livre
+        }
+
         // Supprimer la couverture
         if ($book->cover_path && Storage::disk('public')->exists($book->cover_path)) {
             Storage::disk('public')->delete($book->cover_path);

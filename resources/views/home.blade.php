@@ -12,8 +12,13 @@
         <img src="{{ asset('images/ebook.jpg') }}" alt="Illustration de lecture" class="hero-image img-fluid">
         <h1>Bienvenue sur <span class="brand">Bookly</span></h1>
         <p class="hero-subtitle">Découvrez, lisez et emportez vos livres préférés partout.</p>
+        @auth
         <a href="{{ route('books.create') }}" class="btn btn-custom mt-3"><i class="fa fa-plus-circle me-2"></i>Ajouter un eBook</a>
         <a href="{{ route('books.index')}}" class="btn btn-outline-secondary mt-3"><i class="fa fa-book me-2"></i>Explorer la bibliothèque</a>
+        @else
+        <a href="{{ route('login') }}" class="btn btn-custom mt-3"><i class="fa fa-sign-in-alt me-2"></i>Se connecter</a>
+        <a href="{{ route('register') }}" class="btn btn-outline-secondary mt-3"><i class="fa fa-user-plus me-2"></i>S'inscrire</a>
+        @endauth
     </div>
 </div>
 
