@@ -4,7 +4,10 @@
 
 @section('content')
 <div class="container py-5">
-    <h1 class="mb-4">Paramètres du compte ⚙️</h1>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Paramètres du compte ⚙️</h1>
+        <a href="{{ route('home') }}" class="btn btn-secondary">🏠 Retour à l'accueil</a>
+    </div>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>

@@ -19,7 +19,7 @@
                 allowfullscreen>
             </iframe>
         </div>
-
+        
     @else
         {{-- VERSION MOBILE --}}
         <div class="d-md-none mb-3">
